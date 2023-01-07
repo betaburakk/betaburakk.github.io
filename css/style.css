@@ -934,12 +934,14 @@ justify-content: center;
   color: white;
   padding: 8px 20px;
   border-radius: 0 0 5px 5px;
+  
+  justify-content: center;
 }
 
 #copy-button {
   position: absolute;
   top: 8px;
-  right: 8px;
+  
   padding: 7px;
   background-color: #2d2d2d;
   outline: none;
