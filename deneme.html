@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="my-form">
+        <div class="g-recaptcha" data-sitekey="6Lf5utwjAAAAAGaK5eC-dsTPvYdMNQGFyAJQ3_Dv"></div>
+        <input type="email" name="to" placeholder="To">
+        <input type="text" name="subject" placeholder="Subject">
+        <textarea name="message" placeholder="Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+      
+      <script src="https://www.google.com/recaptcha/api.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/emailjs-recaptcha@1.0.1/dist/emailjs-recaptcha-client.min.js"></script>
+      <script>
+        const form = document.getElementById('my-form');
+        const serviceID = 'service_d9taxxl';
+const templateID = 'template_bn4spbx';
+const userID = 'x81CDOdDLPJyYxLcX';
+      
+        emailjs.init(userID);
+        emailjs.addRecaptcha(form);
+      
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+      
+          emailjs.sendForm(serviceID, templateID, this).then(function() {
+            alert('Email sent!');
+          }, function(error) {
+            console.log('Error sending email:', error);
+          });
+        });
+      </script>
+      
+</body>
+</html>
